@@ -1,0 +1,156 @@
+<app-page-header [title]="'chartjs'" [items]="['charts']" [active_item]="'chartjs'"></app-page-header>
+
+<!-- Row -->
+<div class="row row-sm">
+    <div class="col-lg-6 col-md-12">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-body">
+                <div>
+                    <h6 class="main-content-label mb-1">Line Chart</h6>
+                    <p class="text-muted  card-sub-title">Below is the basic line chart example.</p>
+                </div>
+                <div class="chartjs-wrapper-demo">
+                    <ngx-charts-line-chart [scheme]="colorScheme" [legend]="true" [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true" [xAxisLabel]="'Year'"
+                        [yAxisLabel]="'Population'" [timeline]="true" [results]="chart1.data">
+                    </ngx-charts-line-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-body">
+                <div>
+                    <h6 class="main-content-label mb-1">Area Chart1</h6>
+                    <p class="text-muted  card-sub-title">Below is the basic Area chart example.</p>
+                </div>
+                <div class="chartjs-wrapper-demo">
+                    <ngx-charts-area-chart-stacked [scheme]="colorScheme" [legend]="true" [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true" [xAxisLabel]="'Year'"
+                        [yAxisLabel]="'Population'" [timeline]="true" [results]="chart2.data">
+                    </ngx-charts-area-chart-stacked>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Row -->
+
+<!-- Row -->
+<div class="row row-sm">
+    <div class="col-lg-6 col-md-12">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-body">
+                <div>
+                    <h6 class="main-content-label mb-1">Vertical bar Chart</h6>
+                    <p class="text-muted  card-sub-title">Below are an example of data in a Vertical bar chart.</p>
+                </div>
+                <div class="chartjs-wrapper-demo">
+                    <ngx-charts-bar-vertical [scheme]="colorScheme" [results]="chart3.data" [gradient]="false" [xAxis]="true" [yAxis]="true" [legend]="true" [showXAxisLabel]="true"
+                        [showYAxisLabel]="true" [xAxisLabel]="'Country'" [yAxisLabel]="'Population'">
+                    </ngx-charts-bar-vertical>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-body">
+                <div>
+                    <h6 class="main-content-label mb-1">Stacked vertical bar Chart</h6>
+                    <p class="text-muted  card-sub-title">Below are an example of data in a Stacked vertical bar chart.</p>
+                </div>
+                <div class="chartjs-wrapper-demo">
+                    <ngx-charts-bar-vertical-stacked [scheme]="colorScheme" [results]="chart4.data" [gradient]="false" [xAxis]="true" [yAxis]="true" [legend]="true" [showXAxisLabel]="true"
+                        [showYAxisLabel]="true" [xAxisLabel]="'Country'" [yAxisLabel]="'Population'" [animations]="true">
+                    </ngx-charts-bar-vertical-stacked>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Row -->
+
+<!-- Row -->
+<div class="row row-sm">
+    <div class="col-lg-6 col-md-12">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-body">
+                <div>
+                    <h6 class="main-content-label mb-1">Horizontal Bar Chart</h6>
+                    <p class="text-muted  card-sub-title">Below are an example of data in a Horizontal Bar chart.</p>
+                </div>
+                <div class="chartjs-wrapper-demo">
+                    <ngx-charts-bar-horizontal [scheme]="colorScheme" [results]="chart5.data" [gradient]="true" [xAxis]="true" [yAxis]="true" [legend]="true" [showXAxisLabel]="true"
+                        [showYAxisLabel]="true" [xAxisLabel]="'Country'" [yAxisLabel]="'Population'">
+                    </ngx-charts-bar-horizontal>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-body">
+                <div>
+                    <h6 class="main-content-label mb-1">Pie Chart</h6>
+                    <p class="text-muted  card-sub-title">Below are an example of data in a Pie chart.</p>
+                </div>
+                <div class="chartjs-wrapper-demo">
+                    <ngx-charts-pie-chart [scheme]="colorScheme" [results]="chart6.data" [gradient]="false" [legend]="true" [labels]="true" [doughnut]="false">
+                    </ngx-charts-pie-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Row -->
+<!-- Row  -->
+<div class="row row-sm">
+    <div class="col-lg-6 col-md-12">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-body">
+                <div>
+                    <h6 class="main-content-label mb-1">Polar Chart</h6>
+                    <p class="text-muted  card-sub-title">Below are an example of data in a Polar chart.</p>
+                </div>
+                <div class="chartjs-wrapper-demo">
+                    <ngx-charts-polar-chart [scheme]="colorScheme" [legend]="false" [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true" [xAxisLabel]="'Year'"
+                        [yAxisLabel]="'Population'" [results]="chart7.data">
+                    </ngx-charts-polar-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-body">
+                <div>
+                    <h6 class="main-content-label mb-1">Gauge Chart</h6>
+                    <p class="text-muted  card-sub-title">Below are an example of data in a Gauge chart.</p>
+                </div>
+                <div class="chartjs-wrapper-demo">
+                    <ngx-charts-gauge [scheme]="colorScheme" [results]="chart8.data" [legend]="false">
+                    </ngx-charts-gauge>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Row -->
+<!-- Row  -->
+<div class="row row-sm">
+    <div class="col-md-12">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-body">
+                <div>
+                    <h6 class="main-content-label mb-1">Tree Map Chart</h6>
+                    <p class="text-muted  card-sub-title">Below are an example of data in a Tree Map chart.</p>
+                </div>
+                <div class="chartjs-wrapper-demo">
+                    <ngx-charts-tree-map [scheme]="colorScheme" [results]="chart9.data" [gradient]="false" [animations]="true" [labelFormatting]="labelFormatting">
+                    </ngx-charts-tree-map>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Row -->

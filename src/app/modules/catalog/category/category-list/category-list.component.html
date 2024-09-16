@@ -1,0 +1,80 @@
+
+
+<app-page-header [title]="'Categories'" [items]="['Home']" [active_item]="'Categories'"></app-page-header>
+
+
+<!-- Row -->
+<div class="row row-sm" >
+  <div class="col-lg-12">
+    <div class="card custom-card">
+
+      <div class="card-body">
+
+        <div class="card-title">
+          <div class="d-flex justify-content-between">
+            <div>
+              <input class="form-control" placeholder="Search Category"/>
+            </div>
+
+            <div class="d-flex align-items-center">
+
+              <a class="btn btn-success text-nowrap" routerLink="new">Add Category</a>
+
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="table-responsive">
+          <table class="table table-striped border text-nowrap text-md-nowrap table-hover mg-b-0 ">
+            <thead>
+            <tr class="text-end">
+              <th class="text-start">Category</th>
+              <th>Modified At</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+
+            <tbody *ngIf="result">
+
+            <tr class="text-end" *ngFor="let item of result.data">
+              <td class="fw-bold text-start">{{item.name}}</td>
+              <td>{{item.updatedTime | date:'medium'}} </td>
+              <td>
+                <div>
+                  <button class="btn btn-sm btn-outline-primary" [routerLink]="['edit', item.id]"><i class="fa fa-pencil"></i></button>
+                  <button class="btn btn-sm btn-outline-info mx-2"><i class="fa fa-info"></i></button>
+                  <button class="btn btn-sm btn-outline-warning"><i class="fa fa-trash"></i></button>
+                </div>
+              </td>
+            </tr>
+
+
+            </tbody>
+          </table>
+        </div>
+
+
+
+        <div>
+          <app-pagination
+            [pageNumber]="result.pageIndex"
+            [pageSize]="result.pageSize"
+            [totalCount]="result.count"
+            (pageChanged)="onPageChange($event)"
+            (pageSizeChanged)="onPageSizeChange($event)"
+          ></app-pagination>
+
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</div>
+<!-- End Row-->
+
+

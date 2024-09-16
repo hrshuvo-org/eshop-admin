@@ -1,0 +1,113 @@
+.loader--text {
+    top: 200%;
+    left: 0;
+    right: 0;
+    position: relative;
+    margin: auto;
+  }
+  .loader--text:after {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    content: "Loading";
+    font-weight: bold;
+    animation-name: loading-text;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    background-color: var(--primary-bg-color);
+  }
+  
+  @keyframes loader {
+    15% {
+      transform: translateX(0);
+    }
+    45% {
+      transform: translateX(230px);
+    }
+    65% {
+      transform: translateX(230px);
+    }
+    95% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes loading-text {
+    0% {
+      content: "Loading";
+    }
+    25% {
+      content: "Loading.";
+    }
+    50% {
+      content: "Loading..";
+    }
+    75% {
+      content: "Loading...";
+    }
+  }
+  .bxl-google {
+    color: var(--primary-bg-color);
+    font-size: 22px;
+    line-height: 35px !important;
+    outline: none;
+    height: 37px;
+    width: 37px;
+    background: #fff;
+    margin: auto;
+    text-align: center;
+    border: 1px solid #f1ecf7;
+    box-shadow: none;
+    border-radius: 35px;
+  }
+
+  .login-option ul {
+    margin-top: 150px !important;
+    margin-bottom: 20px !important;
+    background: white;
+    width: 95px;
+    padding: 12px;
+    border-radius: 9px;
+    margin: 0 auto;
+}
+
+.page {
+    display: block !important;
+}
+
+.nav-link img {
+    width: 25px;
+    height: 25px;
+}
+
+.tab-content i {
+     color: gray !important;
+}
+
+.nav-tabs {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    padding: 12px !important;
+}
+
+.nav-tabs .nav-link {
+    border-radius: 4px !important;
+    padding: 3px;
+
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #722398 !important;
+    border: 1px solid var(--white-1) !important;
+}
+
+.main-signin-wrapper .nav-tabs {
+  width: 120px;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 4px;
+  border-radius: 0;
+  border: 1px solid #e4e3ef;
+  position: relative;
+  top: -100%;
+}

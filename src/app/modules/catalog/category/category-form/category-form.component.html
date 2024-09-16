@@ -1,0 +1,63 @@
+<app-page-header [title]="'Categories'" [items]="['Home']" [active_item]="'New'"></app-page-header>
+
+
+<!-- Row -->
+<div class="row row-sm">
+  <div class="col-lg-12">
+    <div class="card custom-card">
+
+      <div class="card-body">
+
+        <div class="card-title">
+          <div class="d-flex justify-content-end">
+            <div class="d-flex align-items-center">
+              <button class="btn btn-success text-nowrap">Back</button>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <form [formGroup]="formData" (ngSubmit)="submit()">
+
+            <div class="row row-sm">
+              <div class="col-md-12">
+
+                <div class="form-group">
+                  <p class="mg-b-10 tx-semibold">Name</p>
+                  <input type="text" class="form-control" formControlName="name" placeholder="Name">
+                </div>
+              </div>
+
+              <div class="col-md-12">
+
+                <div class="form-group">
+                  <p class="mg-b-10 tx-semibold">Description</p>
+                  <textarea class="form-control" name="example-textarea-input" rows="4"
+                            placeholder="text here.."></textarea>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row row-sm">
+              <div class="col text-start">
+                <button class="btn btn-success mx-auto">Save</button>
+
+              </div>
+
+            </div>
+
+
+          </form>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+<!-- End Row-->
+

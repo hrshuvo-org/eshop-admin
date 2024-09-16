@@ -1,0 +1,107 @@
+::ng-deep{
+    .ql-background,
+    .ql-color,
+    .ql-align,
+    .ql-list{
+        margin: 0 2px 0 0;
+    }
+    .dark-theme{
+        // angular editor
+        .angular-editor-toolbar {
+            background-color: var(--dark-body) !important;
+            border: 1px solid #32394e !important;
+        }
+        .angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button {
+            background-color: var(--dark-body) !important;
+            border: 1px solid #32394e !important;
+            color: #ccc;
+        }  
+        .ae-font .ae-picker-label {
+            background-color: var(--dark-body);
+            border: 1px solid #32394e;
+            color: #ccc;
+        }
+        .ae-font .ae-picker-label:before {
+            background: linear-gradient(90deg,var(--dark-body),var(--dark-body));
+            filter: contrast(0);
+        }
+        .ae-font .ae-picker-label:hover {
+            cursor: pointer;
+            background-color: var(--dark-body);
+            transition: .2s ease;
+        }
+        .ae-font .ae-picker-options .ae-picker-item {
+            background-color: var(--dark-body);
+            border: 0 solid #32394e;
+            color: #ccc;
+        }        
+        .ae-font.ae-expanded .ae-picker-options {
+            border-color: #32394e;
+        }    
+        .angular-editor .angular-editor-wrapper .angular-editor-textarea {
+            border: 1px solid #32394e !important;
+            outline: none;
+        }    
+        .angular-editor-button.active{
+            color: #654cc8 !important;
+        }
+    }
+    .transparent-theme{
+        // angular editor
+        .angular-editor-toolbar {
+            background-color: var(--transparent-body) !important;
+            border: 1px solid #32394e !important;
+        }
+        .angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button {
+            background-color: var(--transparent-body) !important;
+            border: 1px solid #32394e !important;
+            color: #ccc;
+        }  
+        .ae-font .ae-picker-label {
+            background-color: var(--transparent-body);
+            border: 1px solid #32394e;
+            color: #ccc;
+        }
+        .ae-font .ae-picker-label:before {
+            background: linear-gradient(90deg,var(--transparent-body),var(--transparent-body));
+            filter: contrast(0);
+        }
+        .ae-font .ae-picker-label:hover {
+            cursor: pointer;
+            background-color: var(--transparent-body);
+            transition: .2s ease;
+        }
+        .ae-font .ae-picker-options .ae-picker-item {
+            background-color: var(--transparent-body);
+            border: 0 solid #32394e;
+            color: #ccc;
+        }        
+        .ae-font.ae-expanded .ae-picker-options {
+            border-color: #32394e;
+        }    
+        .angular-editor .angular-editor-wrapper .angular-editor-textarea {
+            border: 1px solid #32394e !important;
+            outline: none;
+        }    
+        .angular-editor-button.active{
+            color: #654cc8 !important;
+        }
+    }
+    .rtl{
+        .angular-editor-toolbar .angular-editor-toolbar-set .foreground :after {
+            right: auto !important;
+            left: inherit !important;
+        }
+    }
+    .transparent-theme {
+        .angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button,
+        .angular-editor-toolbar{
+            background: var(--transparent-body) !important;
+        }
+       
+    }
+  
+    .angular-editor .angular-editor-wrapper .angular-editor-textarea{
+        outline: none !important;
+    }
+}
