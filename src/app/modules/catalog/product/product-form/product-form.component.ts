@@ -49,6 +49,7 @@ export class ProductFormComponent implements OnInit{
   }
 
   submit() {
+    console.log(this.formData.value);
 
     this.productService.save(this.formData.value).subscribe({
       next: () =>{
@@ -60,21 +61,21 @@ export class ProductFormComponent implements OnInit{
 
   private createForm() {
     this.formData= this.fb.group({
-      id:[null],
+      id:[0],
       name:[null],
-      status:[null],
-      categoryId:[null],
+      status:[0],
+      categoryId:[0],
       category:[null],
       description:[null],
-      rating:[null],
+      rating:[0],
       discountType:[0],
-      discountPercentage:[null],
-      discountFlat:[null],
-      price:[null],
-      priceAfterDiscount:[null],
+      discountPercentage:[0],
+      discountFlat:[0],
+      price:[0],
+      priceAfterDiscount:[0],
       discountInfo:[null],
-      availableStatus:[null],
-      available:[null],
+      availableStatus:[0],
+      available:[0],
       specification:[null]
     });
   }
