@@ -30,4 +30,8 @@ export class CategoryService {
   save(value:any):Observable<any> {
     return this.http.post(this.baseUrl + `categories/save`, value);
   }
+
+  loadCategoryTree() {
+    return this.http.get(this.baseUrl + `categories/tree`);
+  }
 }

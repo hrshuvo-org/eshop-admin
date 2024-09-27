@@ -31,6 +31,7 @@
             <thead>
             <tr class="text-end">
               <th class="text-start">Category</th>
+              <th class="text-start">Parent</th>
               <th>Modified At</th>
               <th>Action</th>
             </tr>
@@ -40,6 +41,7 @@
 
             <tr class="text-end" *ngFor="let item of result.data">
               <td class="fw-bold text-start">{{item.name}}</td>
+              <td class="fw-bold text-start">{{item.parentCategory}}</td>
               <td>{{item.updatedTime | date:'medium'}} </td>
               <td>
                 <div>
@@ -78,3 +80,4 @@
 <!-- End Row-->
 
 
+<app-category-tree-view></app-category-tree-view>
