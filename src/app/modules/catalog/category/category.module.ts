@@ -7,6 +7,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatIconModule} from "@angular/material/icon";
 import {MatTreeModule} from "@angular/material/tree";
 import { CategoryTreeViewComponent } from './category-tree-view/category-tree-view.component';
+import {NgbAccordionModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 
@@ -22,7 +23,8 @@ import { CategoryTreeViewComponent } from './category-tree-view/category-tree-vi
         FormsModule,
         ReactiveFormsModule,
         MatIconModule,
-        MatTreeModule
+        MatTreeModule,
+        NgbAccordionModule
     ]
 })
 export class CategoryModule { }

@@ -11,7 +11,8 @@
         <div class="card-title">
           <div class="d-flex justify-content-end">
             <div class="d-flex align-items-center">
-              <button class="btn btn-success text-nowrap">Back</button>
+              <button class="btn btn-light text-nowrap me-1">Back</button>
+              <button class="btn btn-success text-nowrap" (click)="addVariation()">Add Variation</button>
             </div>
           </div>
         </div>
@@ -35,6 +36,75 @@
                   <textarea class="form-control" name="example-textarea-input" rows="4"
                             placeholder="text here.."></textarea>
                 </div>
+              </div>
+
+              <div class="col-md-12">
+                <div formArrayName="variations">
+                  <div *ngFor="let variation of variations.controls; let i=index" [formGroupName]="i">
+
+                    <div ngbAccordion class="mb-2">
+                      <div ngbAccordionItem [collapsed]="false">
+                        <h2 ngbAccordionHeader>
+                          <button ngbAccordionButton>
+<!--                            <span>&#9733; <b>Fancy</b> title &#9733;</span>-->
+                            <span>{{variation.value.name}}</span>
+                          </button>
+                        </h2>
+                        <div ngbAccordionCollapse>
+                          <div ngbAccordionBody>
+                            <ng-template>
+                              <div class="row">
+                                <div class="col-6">
+                                  <div class="form-group ">
+                                    <input type="text" class="form-control" formControlName="name" placeholder="Name">
+                                  </div>
+                                </div>
+                                <div class="col-6">
+                                  <button class="btn btn-outline-success me-2" type="button" (click)="addVariationOption(variation)"><i class="fa fa-plus"></i> Add Option</button>
+                                  <button class="btn btn-outline-danger" type="button" (click)="removeVariation(variation)"><i class="fa fa-close"></i> Remove Variation</button>
+
+                                </div>
+
+                              </div>
+
+                              <hr>
+                              <div class="row">
+
+                                <div formArrayName="variationOptions">
+                                  <div *ngFor="let option of getVariationOptions(variation).controls; let j=index" [formGroupName]="j">
+
+                                    <div class="row mb-2">
+                                      <div class="col-10">
+                                        <input class="form-control" formControlName="value" type="text">
+                                      </div>
+                                      <div class="col-2">
+                                        <button class="btn btn-sm btn-outline-danger" type="button" (click)="removeVariationOption(variation, j)"><i class="fa fa-close"></i></button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+
+
+
+                              </div>
+
+<!--                              {{variation.value | json}}-->
+
+
+                            </ng-template>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+
+                  </div>
+                </div>
+
               </div>
 
             </div>
