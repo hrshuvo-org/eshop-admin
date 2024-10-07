@@ -41,7 +41,7 @@ export class DropdownComponent implements OnInit {
     },
     {
       key: '0',
-      label: 'Documents 2',
+      label: 'Events',
       data: 'Documents Folder',
       icon: 'pi pi-fw pi-inbox',
       children: [

@@ -21,11 +21,32 @@
           <form [formGroup]="formData" (ngSubmit)="submit()">
 
             <div class="row row-sm">
-              <div class="col-md-12">
+              <div class="col-md-6">
 
                 <div class="form-group">
-                  <p class="mg-b-10 tx-semibold">Name</p>
+                  <p class="mg-b-10 tx-semibold">Parent Category</p>
+                  <p-treeSelect
+                    class="w-full"
+                    containerStyleClass="w-full"
+                    [(ngModel)]="selectedCategory"
+                    [ngModelOptions]="{standalone: true}"
+                    [options]="categorySelectList"
+                    placeholder="Select Item"
+                    [filter]="true"
+                    [filterInputAutoFocus]="true"
+                    [showClear]="false"
+                    (ngModelChange)="onChangeParentCategory()"
+
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-6">
+
+                <div class="form-group">
+                  <p class="mg-b-10 tx-semibold">Category Name</p>
                   <input type="text" class="form-control" formControlName="name" placeholder="Name">
+
                 </div>
               </div>
 

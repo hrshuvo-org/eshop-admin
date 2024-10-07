@@ -34,4 +34,8 @@ export class CategoryService {
   loadCategoryTree() {
     return this.http.get(this.baseUrl + `categories/tree`);
   }
+
+  loadCategorySelectList() {
+    return this.http.get(this.baseUrl + `categories/select-list`);
+  }
 }

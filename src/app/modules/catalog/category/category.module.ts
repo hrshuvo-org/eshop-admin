@@ -8,6 +8,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatTreeModule} from "@angular/material/tree";
 import { CategoryTreeViewComponent } from './category-tree-view/category-tree-view.component';
 import {NgbAccordionModule} from "@ng-bootstrap/ng-bootstrap";
+import {TreeSelectModule} from "primeng/treeselect";
 
 
 
@@ -17,14 +18,15 @@ import {NgbAccordionModule} from "@ng-bootstrap/ng-bootstrap";
     CategoryFormComponent,
     CategoryTreeViewComponent
   ],
-    imports: [
-        CommonModule,
-        SharedModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatIconModule,
-        MatTreeModule,
-        NgbAccordionModule
-    ]
+  imports: [
+    CommonModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    MatTreeModule,
+    NgbAccordionModule,
+    TreeSelectModule
+  ]
 })
 export class CategoryModule { }

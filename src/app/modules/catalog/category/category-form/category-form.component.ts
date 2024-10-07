@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormArray, FormBuilder, FormGroup} from "@angular/forms";
 import {CategoryService} from "../category.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {NotifierService} from "angular-notifier";
+import {ActivatedRoute} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 
 @Component({
@@ -14,6 +13,9 @@ export class CategoryFormComponent implements OnInit {
   id: any;
   formData!: FormGroup;
 
+  selectedCategory: any;
+  categorySelectList: any;
+
   constructor(private fb: FormBuilder,
               private route: ActivatedRoute,
               private categoryService: CategoryService,
@@ -23,6 +25,7 @@ export class CategoryFormComponent implements OnInit {
   ngOnInit() {
 
     this.createForm();
+    this.loadCategories();
     this.load();
   }
 
@@ -31,11 +34,11 @@ export class CategoryFormComponent implements OnInit {
     if (!this.id) return;
 
     this.categoryService.loadForm(this.id).subscribe({
-      next: res => {
-        // console.log(res);
+      next: (res: any) => {
         // this.formData.patchValue(res);
 
         this.populateForm(res);
+        this.populateSelectedNodes(res.parentCategoryId);
       }
     });
 
@@ -83,11 +86,7 @@ export class CategoryFormComponent implements OnInit {
       variationsArray.push(variationForm);
     });
 
-    console.log(this.formData.value);
-  }
-
-  get variations(): FormArray {
-    return this.formData.get('variations') as FormArray;
+    // console.log(this.formData.value);
   }
 
 
@@ -104,10 +103,13 @@ export class CategoryFormComponent implements OnInit {
     });
   }
 
-
-  updateVariation(id:number) {
+  updateVariation(id: number) {
     console.log('updateVariation ', id);
 
+  }
+
+  get variations(): FormArray {
+    return this.formData.get('variations') as FormArray;
   }
 
   getVariationOptions(variation: AbstractControl<any>) {
@@ -128,7 +130,6 @@ export class CategoryFormComponent implements OnInit {
     }));
   }
 
-
   addVariation() {
     this.variations.push(this.fb.group({
       id: [null],
@@ -143,7 +144,43 @@ export class CategoryFormComponent implements OnInit {
     this.variations.removeAt(this.variations.controls.indexOf(variation));
   }
 
+  onChangeParentCategory() {
+    // console.log('selectedNodes ', this.selectedNodes);
+
+    this.formData.patchValue({
+      parentCategoryId: this.selectedCategory.id
+    });
+
+  }
+
+  private loadCategories() {
+    this.categoryService.loadCategorySelectList().subscribe({
+      next: res => {
+        this.categorySelectList = res;
+        // console.log('select list: ', this.nodes);
+      }
+    });
+  }
+
+  private populateSelectedNodes(parentCategoryId: any) {
+    if (!parentCategoryId) return;
+
+    this.selectedCategory = this.findNodeById(this.categorySelectList, parentCategoryId);
+  }
 
 
-
+  private findNodeById(nodes: any[], id: number): any {
+    for (let node of nodes) {
+      if (node.id === id) {
+        return node;
+      }
+      if (node.children && node.children.length > 0) {
+        const foundNode = this.findNodeById(node.children, id);
+        if (foundNode) {
+          return foundNode;
+        }
+      }
+    }
+    return null; // Return null if no node is found
+  }
 }
