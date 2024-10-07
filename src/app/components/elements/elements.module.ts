@@ -29,6 +29,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { ToastsContainer } from './toast/toasts.component';
+import {TreeSelectModule} from "primeng/treeselect";
 
 
 @NgModule({
@@ -57,13 +58,14 @@ import { ToastsContainer } from './toast/toasts.component';
     TabsComponent,
     ToastsContainer
   ],
-  imports: [
-    CommonModule,
-    ElementsRoutingModule,
-    SharedModule,
-    NgbModule,
-    NgSelectModule,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        ElementsRoutingModule,
+        SharedModule,
+        NgbModule,
+        NgSelectModule,
+        FormsModule,
+        TreeSelectModule
+    ]
 })
 export class ElementsModule { }

@@ -691,5 +691,34 @@
       </div>
     </div>
   </div>
+
+  <div class="col-md-12 col-lg-6">
+    <div class="card custom-card">
+      <div class="card-body">
+        <div>
+          <h6 class="main-content-label mb-1">Tree Dropdown with Icon</h6>
+          <p class="text-muted">Below is the Tree Dropdown with Icon.</p>
+        </div>
+        <div class="">
+          <div class="d-flex justify-content-center">
+            <p-treeSelect
+              class="md:w-20rem w-full"
+              containerStyleClass="w-full"
+              [(ngModel)]="selectedNodes"
+              [options]="nodes"
+              placeholder="Select Item"
+              [filter]="true"
+              [filterInputAutoFocus]="true"
+            />
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 </div>
 <!-- End Row -->
