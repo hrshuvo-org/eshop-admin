@@ -1,1 +1,252 @@
-<p>product-item-form works!</p>
+<app-page-header [title]="'Product Items'" [items]="['Home', 'Products', 'Items']" [active_item]="'New'"></app-page-header>
+
+
+<form [formGroup]="formData" (ngSubmit)="submit()">
+
+  <!-- Row -->
+  <div class="row row-sm">
+    <div class="col-lg-4">
+      <div class="card custom-card">
+        <div class="card-body">
+          <div>
+            <h1>Thumbnail</h1>
+          </div>
+
+          <div class="d-flex justify-content-center">
+            <img src="favicon.ico" alt="" style="height: 70px"/>
+          </div>
+
+          <p class="text-muted">Set the product thumbnail image. Only *.png, *.jpg and *.jpeg image files are
+            accepted</p>
+        </div>
+      </div>
+
+      <div class="card custom-card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <h1>Product</h1>
+
+            <div>
+              <a class="btn btn-sm btn-outline-primary bg-opacity-75 mt-2" routerLink="/products/new">
+                <i class="fa fa-plus"></i> New Product</a>
+
+            </div>
+
+          </div>
+
+          <div>
+            <select class="form-control" formControlName="productId">
+              <option [value]="item.id"  *ngFor="let item of productSelectList">{{item.name}}</option>
+            </select>
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+      <div class="card custom-card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <h1>Status</h1>
+            <h3>
+              <i class="fa fa-circle"
+                 [ngClass]="formData.get('status')?.value == 0 ? 'text-success':''">
+              </i>
+            </h3>
+          </div>
+
+          <div>
+            <select class="form-control" formControlName="status">
+              <option [value]="0">Published</option>
+              <option [value]="-1">Inactive</option>
+
+            </select>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="col-lg-8">
+
+      <div class="col-xl-12">
+        <div class="panel panel-primary tabs-style-2">
+          <ul ngbNav #nav="ngbNav" class="panel-tabs main-nav-line">
+            <li ngbNavItem>
+              <a ngbNavLink>General</a>
+              <ng-template ngbNavContent>
+
+                <div class="card custom-card mg-y-20">
+                  <div class="card-body">
+
+                    <h2 class="my-3">
+                      General
+                    </h2>
+                    <div class="row row-sm">
+                      <div class="col-md-12">
+
+                        <div class="form-group">
+                          <p class="mg-b-10 tx-semibold">Name</p>
+                          <input type="text" class="form-control" formControlName="name" placeholder="Name">
+                        </div>
+                      </div>
+
+                      <div class="col-md-12">
+
+                        <div class="form-group">
+                          <p class="mg-b-10 tx-semibold">Sku</p>
+                          <input type="text" class="form-control" formControlName="sku" placeholder="Stock Keeping Unit">
+                        </div>
+                      </div>
+
+                      <div class="col-md-12">
+
+                        <div class="form-group">
+                          <p class="mg-b-10 tx-semibold">Description</p>
+                          <textarea formControlName="description" class="form-control" name="example-textarea-input"
+                                    rows="4"
+                                    placeholder="text here.."></textarea>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="card custom-card mg-b-20">
+                  <div class="card-body">
+                    <h2>Pricing</h2>
+
+                    <div class="row row-sm">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <p class="mg-b-10 tx-semibold">Base Price</p>
+                          <input type="text" formControlName="price" class="form-control" placeholder="Product price">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <p class="mg-b-10 tx-semibold">Price After Discount</p>
+                          <input type="text" readonly  class="form-control" placeholder="Product price">
+                        </div>
+                      </div>
+
+                      <div class="col-md-12" *ngIf="false">
+
+                        <div class="form-group">
+                          <p class="mg-b-10 tx-semibold">Discount type</p>
+
+                          <div class="selectgroup selectgroup-pills">
+                            <label class="selectgroup-item ">
+                              <input type="radio" formControlName="discountType" [value]="0" class="selectgroup-input">
+
+                              <span class="selectgroup-button"><i class="fa fa-circle"></i> No Discount</span>
+                            </label>
+
+                            <label class="selectgroup-item">
+                              <input type="radio" formControlName="discountType" [value]="1" class="selectgroup-input">
+                              <span class="selectgroup-button"><i class="fa fa-circle"></i> Percentage %</span>
+                            </label>
+
+                            <label class="selectgroup-item">
+                              <input type="radio" formControlName="discountType" [value]="2" class="selectgroup-input">
+                              <span class="selectgroup-button"><i class="fa fa-circle"></i> Flat</span>
+                            </label>
+                          </div>
+
+                        </div>
+                      </div>
+
+
+                    </div>
+
+
+                  </div>
+
+
+                </div>
+
+
+
+              </ng-template>
+            </li>
+
+
+
+            <li ngbNavItem>
+              <a ngbNavLink>Advance</a>
+              <ng-template ngbNavContent>
+
+                <div class="card custom-card mg-y-20">
+                  <div class="card-body">
+                    <h1>TODO</h1>
+
+                  </div>
+                </div>
+              </ng-template>
+            </li>
+          </ul>
+
+
+          <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+
+
+        </div>
+
+      </div>
+
+
+
+
+      <div class="col-xl-12">
+        <div class="d-flex justify-content-end my-2">
+          <a class="btn me-2" type="button" routerLink="/products">Cancel</a>
+          <button class="btn btn-primary" type="submit">Save Changes</button>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- End Row-->
+
+</form>
+
+
+<!--
+
+
+<div class="panel panel-primary tabs-style-2">
+  <ul ngbNav #nav="ngbNav" class="panel-tabs main-nav-line">
+    <li ngbNavItem>
+      <a ngbNavLink>General</a>
+      <ng-template ngbNavContent>
+        <h2 class="my-3">
+          General
+        </h2>
+        <p>These navs will always stay in DOM and have no roles</p>
+      </ng-template>
+    </li>
+    <li ngbNavItem>
+      <a ngbNavLink>Two</a>
+      <ng-template ngbNavContent>
+        <p>Because default values have been customized in the config</p>
+      </ng-template>
+    </li>
+  </ul>
+
+  <div class="panel-body tabs-menu-body main-content-body-right border mt-2">
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  </div>
+
+</div>
+
+
+-->

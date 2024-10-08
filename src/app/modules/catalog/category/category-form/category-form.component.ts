@@ -50,7 +50,7 @@ export class CategoryFormComponent implements OnInit {
       id: [null],
       name: [null],
       parentCategoryId: [null],
-      status: [null],
+      status: [0],
       variations: this.fb.array([])
     });
   }
@@ -92,8 +92,7 @@ export class CategoryFormComponent implements OnInit {
 
   submit() {
 
-    console.log(this.formData.value);
-
+    // console.log(this.formData.value);
 
     // return;
     this.categoryService.save(this.formData.value).subscribe({
