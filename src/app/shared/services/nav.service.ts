@@ -489,6 +489,13 @@ export class NavService implements OnDestroy {
           active: false,
         },
         {
+          title: 'Product Items',
+          path:'/items',
+          icon: '',
+          type:'link',
+          active: false,
+        },
+        {
           title: 'Categories',
           path:'/categories',
           icon: '',

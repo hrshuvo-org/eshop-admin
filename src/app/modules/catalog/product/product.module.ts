@@ -6,13 +6,17 @@ import { ProductFormComponent } from './product-form/product-form.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgbNav, NgbNavContent, NgbNavItem, NgbNavLink, NgbNavModule} from "@ng-bootstrap/ng-bootstrap";
 import {NgxSliderModule} from "ngx-slider-v2";
+import { ProductItemListComponent } from './product-item-list/product-item-list.component';
+import { ProductItemFormComponent } from './product-item-form/product-item-form.component';
 
 
 
 @NgModule({
   declarations: [
     ProductListComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductItemListComponent,
+    ProductItemFormComponent
   ],
     imports: [
         CommonModule,

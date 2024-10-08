@@ -1,0 +1,105 @@
+<app-page-header [title]="'Items'" [items]="['Home', 'Products']" [active_item]="'Items'"></app-page-header>
+
+
+<!-- Row -->
+<div class="row row-sm">
+  <div class="col-lg-12">
+    <div class="card custom-card">
+
+      <div class="card-body">
+
+        <div class="card-title">
+          <div class="d-flex justify-content-between">
+            <div>
+              <input class="form-control" placeholder="Search Product Item"/>
+            </div>
+
+            <div class="d-flex align-items-center">
+              <select class="form-control mx-2">
+                <i class="fa fa-arrow-down"></i>
+                <option>Published</option>
+                <option>Scheduled</option>
+                <option>Inactive</option>
+              </select>
+
+              <a class="btn btn-success text-nowrap" routerLink="new">Add Product</a>
+
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-striped border text-nowrap text-md-nowrap table-hover mg-b-0 ">
+            <thead>
+            <tr class="text-end">
+              <th></th>
+              <th class="text-start">Item</th>
+              <th>Product</th>
+              <th>SKU</th>
+              <th>Qty</th>
+              <th>Price</th>
+              <th>Rating</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+
+            <tbody *ngIf="result">
+
+            <tr class="text-end" *ngFor="let item of result.data">
+              <td class="text-center">
+                <img alt="avatar" class="wd-30 rounded-circle mg-r-15" src="../../../../../assets/img/users/2.jpg">
+              </td>
+              <td class="fw-bold text-start">{{item.name}}</td>
+              <td>{{item.product}}</td>
+              <td>{{item.id}}</td>
+              <td>{{item.available}}</td>
+              <td>{{item.price}}</td>
+              <td>
+                <div>
+                  <i class="fa fa-star" style="color:#f1c40f" *ngFor="let star of getRatingList(item.rating)"></i>
+                </div>
+              </td>
+
+              <td>
+                <div>
+                  <span *ngIf="item.status == -1" class="badge bg-dark">Inactive</span>
+                  <span *ngIf="item.status == 0" class="badge bg-success">Active</span>
+                  <span *ngIf="item.status == -404" class="badge bg-danger">Deleted</span>
+                </div>
+              </td>
+
+              <td>
+                <div>
+                  <button class="btn btn-sm btn-outline-primary" [routerLink]="['edit', item.id]"><i class="fa fa-pencil"></i></button>
+                  <button class="btn btn-sm btn-outline-info mx-2"><i class="fa fa-info"></i></button>
+                  <button class="btn btn-sm btn-outline-warning"><i class="fa fa-trash"></i></button>
+                </div>
+              </td>
+            </tr>
+
+
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <app-pagination
+            [pageNumber]="result.pageIndex"
+            [pageSize]="result.pageSize"
+            [totalCount]="result.count"
+            (pageChanged)="onPageChange($event)"
+            (pageSizeChanged)="onPageSizeChange($event)"
+          ></app-pagination>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- End Row-->
+
+
