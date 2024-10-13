@@ -50,7 +50,7 @@
 
             <tr class="text-end" *ngFor="let item of result.data">
               <td class="text-center">
-                <img alt="avatar" class="wd-30 rounded-circle mg-r-15" src="../../../../../assets/img/users/2.jpg">
+                <img alt="avatar" class="wd-30 rounded-circle mg-r-15" [src]="item.photoUrl??'assets/img/users/1.jpg'" >
               </td>
               <td class="fw-bold text-start">{{item.name}}</td>
               <td>{{item.product}}</td>

@@ -14,6 +14,7 @@ import {PaginationParams} from "../../../../shared/models/filter-list";
 export class ProductItemFormComponent implements OnInit {
   id: any;
   formData!: FormGroup;
+  photoUrl: any;
 
   listFilter: PaginationParams = new PaginationParams();
   productSelectList!: any[];
@@ -61,17 +62,18 @@ export class ProductItemFormComponent implements OnInit {
     if (!this.id) return;
 
     this.productItemService.loadForm(this.id).subscribe({
-      next: res => {
+      next: (res: any) => {
         this.formData.patchValue(res);
-        console.log(this.formData.value);
+        this.photoUrl = res.photoUrl;
+        // console.log(this.formData.value);
+        // console.log(res);
       }
     });
 
   }
 
-
   submit() {
-    console.log(this.formData.value);
+    // console.log(this.formData.value);
     this.productItemService.save(this.formData.value).subscribe({
       next: () => {
         this.toastr.success('Save success');
@@ -79,5 +81,17 @@ export class ProductItemFormComponent implements OnInit {
     });
   }
 
+
+  files: File[] = [];
+
+  onSelect(event: any) {
+    // console.log(event);
+    this.files.push(...event.addedFiles);
+  }
+
+  onRemove(event: any) {
+    // console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
+  }
 
 }

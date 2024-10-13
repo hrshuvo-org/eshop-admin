@@ -1,4 +1,5 @@
-<app-page-header [title]="'Product Items'" [items]="['Home', 'Products', 'Items']" [active_item]="'New'"></app-page-header>
+<app-page-header [title]="'Product Items'" [items]="['Home', 'Products', 'Items']"
+                 [active_item]="'New'"></app-page-header>
 
 
 <form [formGroup]="formData" (ngSubmit)="submit()">
@@ -9,15 +10,17 @@
       <div class="card custom-card">
         <div class="card-body">
           <div>
-            <h1>Thumbnail</h1>
+            <!--            <h1>Thumbnail</h1>-->
           </div>
 
           <div class="d-flex justify-content-center">
-            <img src="favicon.ico" alt="" style="height: 70px"/>
+            <div class="p-2" style="border: groove 1px">
+              <img [src]="photoUrl??'assets/img/users/1.jpg'" alt="photo" style="height: 270px; width: 100%"/>
+
+            </div>
           </div>
 
-          <p class="text-muted">Set the product thumbnail image. Only *.png, *.jpg and *.jpeg image files are
-            accepted</p>
+          <p *ngIf="!photoUrl" class="text-muted text-center">upload image on advance section when edit</p>
         </div>
       </div>
 
@@ -36,10 +39,9 @@
 
           <div>
             <select class="form-control" formControlName="productId">
-              <option [value]="item.id"  *ngFor="let item of productSelectList">{{item.name}}</option>
+              <option [value]="item.id" *ngFor="let item of productSelectList">{{ item.name }}</option>
             </select>
           </div>
-
 
 
         </div>
@@ -99,7 +101,8 @@
 
                         <div class="form-group">
                           <p class="mg-b-10 tx-semibold">Sku</p>
-                          <input type="text" class="form-control" formControlName="sku" placeholder="Stock Keeping Unit">
+                          <input type="text" class="form-control" formControlName="sku"
+                                 placeholder="Stock Keeping Unit">
                         </div>
                       </div>
 
@@ -132,7 +135,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <p class="mg-b-10 tx-semibold">Price After Discount</p>
-                          <input type="text" readonly  class="form-control" placeholder="Product price">
+                          <input type="text" readonly class="form-control" placeholder="Product price">
                         </div>
                       </div>
 
@@ -172,14 +175,12 @@
                 </div>
 
 
-
               </ng-template>
             </li>
 
 
-
             <li ngbNavItem>
-              <a ngbNavLink>Advance</a>
+              <a ngbNavLink [class]="id?'':'disabled'">Advance</a>
               <ng-template ngbNavContent>
 
                 <div class="card custom-card mg-y-20">
@@ -196,12 +197,9 @@
           <div [ngbNavOutlet]="nav" class="mt-2"></div>
 
 
-
         </div>
 
       </div>
-
-
 
 
       <div class="col-xl-12">
