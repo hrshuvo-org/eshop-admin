@@ -185,7 +185,12 @@
 
                 <div class="card custom-card mg-y-20">
                   <div class="card-body">
-                    <app-photo-editor [addPhotoUrl]="photoApiUrl" [loadPhotoUrl]="loadPhotoUrl" [id]="id"></app-photo-editor>
+                    <app-photo-editor
+                      [addPhotoUrl]="photoApiUrl"
+                      [loadPhotoUrl]="loadPhotoUrl"
+                      [id]="id"
+                      (mainPhoto)="setMainPhoto($event)"
+                    ></app-photo-editor>
 
                   </div>
                 </div>

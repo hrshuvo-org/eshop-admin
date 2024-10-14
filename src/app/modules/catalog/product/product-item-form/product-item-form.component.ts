@@ -98,4 +98,7 @@ export class ProductItemFormComponent implements OnInit {
     this.files.splice(this.files.indexOf(event), 1);
   }
 
+  setMainPhoto(url: string) {
+    this.photoUrl = url;
+  }
 }

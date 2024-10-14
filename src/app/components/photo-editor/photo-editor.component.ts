@@ -1,8 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FileUploader} from "ng2-file-upload";
 import {environment} from "../../../environments/environment";
-import {HttpClient} from "@angular/common/http";
-import {map} from "rxjs/operators";
 import {PhotoService} from "../../shared/services/photo.service";
 
 @Component({
@@ -16,12 +14,14 @@ export class PhotoEditorComponent implements OnInit {
   @Input({required: true}) addPhotoUrl!: string;
   @Input() loadPhotoUrl!: string;
 
+  @Output() mainPhoto: EventEmitter<string> = new EventEmitter<string>(null!);
+
   photoList: any[] = [];
 
   uploader!: FileUploader;
   hasBaseDropZoneOver = false;
 
-  constructor(private photoService: PhotoService){
+  constructor(private photoService: PhotoService) {
   }
 
   ngOnInit(): void {
@@ -59,15 +59,26 @@ export class PhotoEditorComponent implements OnInit {
 
 
   deletePhoto(photoId: number) {
+    console.log(photoId);
 
   }
 
   setMainPhoto(photo: any) {
 
+    this.photoService.setMainPhoto(this.id, photo.id).subscribe({
+      next: () => {
+        this.mainPhoto.emit(photo.url);
+
+        this.photoList.forEach(p => {
+          if (p.isMain) p.isMain = false;
+          if (p.id === photo.id) p.isMain = true;
+        });
+      }
+    });
+
   }
 
   private loadPhotos() {
-
     this.photoService.loadPhotos(this.loadPhotoUrl + '/' + this.id).subscribe({
       next: (res: any) => {
         // console.log(res);
