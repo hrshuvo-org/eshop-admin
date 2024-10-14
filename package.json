@@ -63,6 +63,7 @@
     "ng-gallery": "^11.0.0",
     "ng2-charts": "^4.1.1",
     "ng2-dragula": "^5.0.1",
+    "ng2-file-upload": "^7.0.1",
     "ngx-bar-rating": "^6.0.0",
     "ngx-color-picker": "^14.0.0",
     "ngx-cookie-service": "^16.0.0",

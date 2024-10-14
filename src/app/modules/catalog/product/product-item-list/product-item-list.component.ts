@@ -24,6 +24,7 @@ export class ProductItemListComponent implements OnInit {
     this.productItemService.loadList(this.listFilter).subscribe({
       next: res => {
         this.result = res;
+        console.log(this.result);
       }
     });
   }

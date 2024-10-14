@@ -16,6 +16,10 @@ export class ProductItemFormComponent implements OnInit {
   formData!: FormGroup;
   photoUrl: any;
 
+  // photoApiUrl = 'products/photos';
+  photoApiUrl = 'products/add-photo';
+  loadPhotoUrl = 'products/photos';
+
   listFilter: PaginationParams = new PaginationParams();
   productSelectList!: any[];
 
@@ -66,7 +70,7 @@ export class ProductItemFormComponent implements OnInit {
         this.formData.patchValue(res);
         this.photoUrl = res.photoUrl;
         // console.log(this.formData.value);
-        // console.log(res);
+        console.log(res);
       }
     });
 

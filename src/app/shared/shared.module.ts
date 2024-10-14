@@ -23,6 +23,8 @@ import { SwitcherLayoutComponent } from './layout-components/layout/switcher-lay
 import { SwitcherHeaderComponent } from './layout-components/switcher-header/switcherheader.component';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import {PaginationComponent} from "../components/elements/pagination/pagination.component";
+import {PhotoEditorComponent} from "../components/photo-editor/photo-editor.component";
+import {FileUploadModule} from "ng2-file-upload";
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import {PaginationComponent} from "../components/elements/pagination/pagination.
     ToggleThemeDirective,
     SwitcherHeaderComponent,
     PaginationComponent,
+    PhotoEditorComponent
   ],
   imports: [
     CommonModule,
@@ -52,10 +55,12 @@ import {PaginationComponent} from "../components/elements/pagination/pagination.
     NgScrollbarModule,
     ColorPickerModule,
     FormsModule,
+    FileUploadModule,
   ],
   exports : [
     PageHeaderComponent, TabToTopComponent, FullLayoutComponent, ContentLayoutComponent, ErrorLayoutComponent, SwitcherComponent, LoaderComponent, SwitcherLayoutComponent,
-    PaginationComponent,RouterModule
+    PaginationComponent,RouterModule,
+    PhotoEditorComponent,FileUploadModule
   ],
   providers: [
   ]
