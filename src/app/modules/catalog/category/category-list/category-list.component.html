@@ -9,21 +9,25 @@
     <div class="card custom-card">
 
       <div class="card-body">
+        <form (ngSubmit)="submit()">
+          <div class="card-title">
+            <div class="d-flex justify-content-between">
+              <div>
+                <input class="form-control" [(ngModel)]="listFilter.Query" [ngModelOptions]="{standalone:true}" placeholder="Search Category"/>
+              </div>
 
-        <div class="card-title">
-          <div class="d-flex justify-content-between">
-            <div>
-              <input class="form-control" placeholder="Search Category"/>
+              <div class="d-flex align-items-center">
+
+                <a class="btn btn-success text-nowrap" routerLink="new">Add Category</a>
+
+              </div>
+
             </div>
-
-            <div class="d-flex align-items-center">
-
-              <a class="btn btn-success text-nowrap" routerLink="new">Add Category</a>
-
-            </div>
-
           </div>
-        </div>
+
+        </form>
+
+
 
 
         <div class="table-responsive">

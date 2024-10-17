@@ -39,4 +39,8 @@ export class CategoryListComponent implements OnInit {
     this.listFilter.PageSize = size;
     this.load();
   }
+
+  submit() {
+    this.load();
+  }
 }

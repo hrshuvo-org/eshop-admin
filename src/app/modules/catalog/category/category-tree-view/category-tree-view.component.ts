@@ -26,7 +26,7 @@ export class CategoryTreeViewComponent implements OnInit {
   private load() {
     this.categoryService.loadCategoryTree().subscribe({
       next: (res: any) => {
-        console.log(res);
+        // console.log(res);
         this.dataSource.data = res;
       }
     });
