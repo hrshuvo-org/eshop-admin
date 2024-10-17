@@ -47,7 +47,7 @@ export class CategoryFormComponent implements OnInit {
 
   private createForm() {
     this.formData = this.fb.group({
-      id: [null],
+      id: [0],
       name: [null],
       parentCategoryId: [null],
       status: [0],
@@ -117,21 +117,21 @@ export class CategoryFormComponent implements OnInit {
   }
 
   removeVariationOption(variation: AbstractControl<any>, j: number) {
-    console.log('removeVariationOption ', variation.value, j);
+    // console.log('removeVariationOption ', variation.value, j);
     this.getVariationOptions(variation).removeAt(j);
   }
 
   addVariationOption(variation: AbstractControl<any>) {
-    console.log('addVariationOption ', variation.value);
+    // console.log('addVariationOption ', variation.value);
     this.getVariationOptions(variation).push(this.fb.group({
-      id: [null],
+      id: [0],
       value: [null]
     }));
   }
 
   addVariation() {
     this.variations.push(this.fb.group({
-      id: [null],
+      id: [0],
       name: [null],
       variationOptions: this.fb.array([])
     }));
@@ -139,7 +139,7 @@ export class CategoryFormComponent implements OnInit {
   }
 
   removeVariation(variation: AbstractControl<any>) {
-    console.log('removeVariation ', variation.value);
+    // console.log('removeVariation ', variation.value);
     this.variations.removeAt(this.variations.controls.indexOf(variation));
   }
 
