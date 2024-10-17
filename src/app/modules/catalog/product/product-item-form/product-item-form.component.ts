@@ -47,6 +47,7 @@ export class ProductItemFormComponent implements OnInit {
       // discountPercentage: [0],
       // discountPrice: [0],
       qtyStock: [0],
+      photoUrl: [''],
       status: [0]
     });
 
